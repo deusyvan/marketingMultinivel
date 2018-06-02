@@ -11,6 +11,7 @@ function  listar($id, $limite){
         
         //usaremos a propria função para pegar os usuários filhos
         foreach ($lista as $chave => $usuario){
+            $lista[$chave]['filhos'] = array();
             if ($limite > 0) {
                 $lista[$chave]['filhos'] = listar($usuario['id'], $limite-1);
             }
