@@ -1,5 +1,5 @@
 <?php
-function  listar($id){
+function  listar($id, $limite){
     $lista = array();
     global $pdo;
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id_pai = :id");
@@ -11,7 +11,9 @@ function  listar($id){
         
         //usaremos a propria função para pegar os usuários filhos
         foreach ($lista as $chave => $usuario){
-            $lista[$chave]['filhos'] = listar($usuario['id']);
+            if ($limite > 0) {
+                $lista[$chave]['filhos'] = listar($usuario['id'], $limite-1);
+            }
         }
     } 
     

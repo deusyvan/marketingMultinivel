@@ -6,3 +6,5 @@
         echo "ERRO: ".$e->getMessage();
         exit;
     }
+    
+    $limite = 3;

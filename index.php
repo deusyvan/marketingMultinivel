@@ -27,7 +27,7 @@
         exit;
     }
     
-    $lista = listar($id);
+    $lista = listar($id, $limite);
     
 ?>
 <h1>Sistema de Marketing Multinível</h1>
