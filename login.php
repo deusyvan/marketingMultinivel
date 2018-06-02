@@ -12,7 +12,21 @@
        $sql->bindValue(":senha", $senha);
        $sql->execute();
        
-       
+       //compara se existe o usuario
+       if ($sql->rowCount() > 0){
+           //Existindo faz um fetch retorna o resultado
+           $sql = $sql->fetch();
+           
+           //Depois salva o id na sessão
+           $_SESSION['mmnlogin'] = $sql['id'];
+           
+           //redireciona para index
+           header("Location: index.php");
+           exit;
+           
+       } else {
+           echo "Usuário e/ou Senha inválidos!";
+       }
        
     }
 ?>
