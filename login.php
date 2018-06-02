@@ -4,7 +4,7 @@
     
     if (!empty($_POST['email'])) {
         $email = addslashes($_POST['email']);
-        $senha = addslashes($_POST['senha']);
+        $senha = md5(addslashes($_POST['senha']));
         
        //buscando e-mail e senha no banco de dados
        $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha :senha");
