@@ -7,8 +7,14 @@
         $email = addslashes($_POST['email']);
         $id_pai = $_SESSION['mmnlogin'];
         $senha = md5($email);
-        
-        
+       
+        //buscando no banco pelo email
+       $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email");
+       $sql->bindValue(":email", $email);
+       $sql->execute();
+       
+       
+       
         
     }
 ?>
