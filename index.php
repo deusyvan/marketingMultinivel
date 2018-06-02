@@ -29,3 +29,5 @@
 ?>
 <h1>Sistema de Marketing Multinível</h1>
 <h2>Usuário logado: <?php echo $nome ?></h2>
+
+<a href="cadastro.php">Cadastrar Novo Usuário</a>
