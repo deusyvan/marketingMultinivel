@@ -7,7 +7,7 @@ function  listar($id){
     $sql->execute();
     
     if ($sql->rowCount() > 0) {
-        $lista = $sql->fetchAll();
+        $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
         
         //usaremos a propria função para pegar os usuários filhos
         foreach ($lista as $chave => $usuario){
