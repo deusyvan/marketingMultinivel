@@ -5,6 +5,7 @@ function  calcular_cadastros($id, $limite){
     $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id_pai = :id");
     $sql->bindValue(":id", $id);
     $sql->execute();
+    $filhos = 0;
     
     if ($sql->rowCount() > 0) {
         $lista = $sql->fetchAll(PDO::FETCH_ASSOC);
