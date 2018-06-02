@@ -7,11 +7,11 @@
         $senha = md5(addslashes($_POST['senha']));
         
        //buscando e-mail e senha no banco de dados
-       $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha :senha");
+       $sql = $pdo->prepare("SELECT * FROM usuarios WHERE email = :email AND senha = :senha");
        $sql->bindValue(":email", $email);
        $sql->bindValue(":senha", $senha);
        $sql->execute();
-       
+       echo $sql->rowCount();
        //compara se existe o usuario
        if ($sql->rowCount() > 0){
            //Existindo faz um fetch retorna o resultado
