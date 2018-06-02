@@ -28,6 +28,11 @@ function exibir($array){
     foreach ( $array as $usuario) {
         echo '<li>';
         echo $usuario['nome'];
+        
+        if(count($usuario['filhos']) > 0){
+            exibir($usuario['filhos']);
+        }
+        
         echo '</li>';
     }
     ?>
