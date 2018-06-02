@@ -5,6 +5,10 @@
     if (!empty($_POST['nome']) && !empty($_POST['email'])) {
         $nome = addslashes($_POST['nome']);
         $email = addslashes($_POST['email']);
+        $id_pai = $_SESSION['mmnlogin'];
+        $senha = md5($email);
+        
+        
         
     }
 ?>
