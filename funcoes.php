@@ -27,7 +27,7 @@ function exibir($array){
     <?php 
     foreach ( $array as $usuario) {
         echo '<li>';
-        echo $usuario['nome'];
+        echo $usuario['nome'].' - Cadastrou: '.count($usuario['filhos']).' usuários';
         
         if(count($usuario['filhos']) > 0){
             exibir($usuario['filhos']);
