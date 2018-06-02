@@ -13,7 +13,11 @@
     $id = $_SESSION['mmnlogin'];
     
     //buscando o nome pelo id
-    $sql = $pdo->prepare("SELECT nome FROM usuarios WHERE id = :id");
+    $sql = $pdo->prepare("SELECT 
+                        usuarios.nome, patentes.nome as p_nome 
+                        FROM usuarios 
+                        LEFT JOIN patentes ON patentes.id = usuarios.patente
+                        WHERE usuarios.id = :id");
     $sql->bindValue(":id", $id);
     $sql->execute();
     
@@ -22,6 +26,7 @@
         //traz o nome
         $sql = $sql->fetch();
         $nome = $sql['nome'];
+        $p_nome = $sql['p_nome'];
     } else {
         header("Location: login.php");
         exit;
@@ -31,7 +36,7 @@
     
 ?>
 <h1>Sistema de Marketing Multinível</h1>
-<h2>Usuário logado: <?php echo $nome ?></h2>
+<h2>Usuário logado: <?php echo $nome.' ('.$p_nome.')'; ?></h2>
 
 <a href="cadastro.php">Cadastrar Novo Usuário</a>
 
