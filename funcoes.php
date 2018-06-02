@@ -20,3 +20,21 @@ function  listar($id, $limite){
     
     return $lista;
 }
+
+function exibir($array){
+    ?>
+    <ul>
+    <?php 
+    foreach ( $array as $usuario) {
+        echo '<li>';
+        echo $usuario['nome'];
+        echo '</li>';
+    }
+    ?>
+    </ul>
+    <?php 
+}
+
+
+
+

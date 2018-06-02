@@ -39,14 +39,7 @@
 
 <h4>Lista de Usuários</h4>
 
-<pre>
-	<?php print_r($lista); ?>
-</pre>
-<ul>
-	<?php foreach ($lista as $usuario):	?>
-      <li><?php echo $usuario['nome']?></li>
-  	<?php endforeach; ?>
-</ul>
+<?php exibir($lista); ?>
 
 
 
