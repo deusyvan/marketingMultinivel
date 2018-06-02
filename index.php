@@ -34,7 +34,6 @@
     
     if ($sql->rowCount() > 0) {
         $lista = $sql->fetchAll();
-        $nome = $sql['nome'];
     } 
     
     
@@ -45,3 +44,15 @@
 <a href="cadastro.php">Cadastrar Novo Usuário</a>
 
 <a href="sair.php">Sair</a>
+
+<h4>Lista de Usuários</h4>
+
+<ul>
+	<?php foreach ($lista as $usuario):	?>
+      <li><?php echo $usuario['nome']?></li>
+  	<?php endforeach; ?>
+</ul>
+
+
+
+
