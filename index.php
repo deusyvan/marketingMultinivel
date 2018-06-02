@@ -1,6 +1,7 @@
 <?php 
     session_start();
     require 'config.php';
+    require 'funcoes.php';
     
     //verificando se existe um usuario logado
     if (empty($_SESSION['mmnlogin'])) {
@@ -26,16 +27,7 @@
         exit;
     }
     
-    $lista = array();
-    
-    $sql = $pdo->prepare("SELECT nome FROM usuarios WHERE id_pai = :id");
-    $sql->bindValue(":id", $id);
-    $sql->execute();
-    
-    if ($sql->rowCount() > 0) {
-        $lista = $sql->fetchAll();
-    } 
-    
+    $lista = listar($id);
     
 ?>
 <h1>Sistema de Marketing Multinível</h1>
