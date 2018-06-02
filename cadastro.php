@@ -22,7 +22,10 @@
            $sql->bindValue(":senha", $senha);
            $sql->execute();
            
-           
+           header("Location: index.php");
+           exit;
+       } else {
+           echo "Já existe um usuário cadastrado com esse e-mail!";
        }
        
         
