@@ -1,7 +1,14 @@
 <?php
     session_start();
     require 'config.php';
+    
+    if (!empty($_POST['nome']) && !empty($_POST['email'])) {
+        $nome = addslashes($_POST['nome']);
+        $email = addslashes($_POST['email']);
+        
+    }
 ?>
+
 
 <h1>Cadastrar Novo Usuário</h1>
 
