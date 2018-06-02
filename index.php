@@ -26,6 +26,18 @@
         exit;
     }
     
+    $lista = array();
+    
+    $sql = $pdo->prepare("SELECT nome FROM usuarios WHERE id_pai = :id");
+    $sql->bindValue(":id", $id);
+    $sql->execute();
+    
+    if ($sql->rowCount() > 0) {
+        $lista = $sql->fetchAll();
+        $nome = $sql['nome'];
+    } 
+    
+    
 ?>
 <h1>Sistema de Marketing Multinível</h1>
 <h2>Usuário logado: <?php echo $nome ?></h2>
