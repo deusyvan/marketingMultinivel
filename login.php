@@ -11,7 +11,7 @@
        $sql->bindValue(":email", $email);
        $sql->bindValue(":senha", $senha);
        $sql->execute();
-       echo $sql->rowCount();
+       
        //compara se existe o usuario
        if ($sql->rowCount() > 0){
            //Existindo faz um fetch retorna o resultado

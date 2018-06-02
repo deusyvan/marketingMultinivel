@@ -31,3 +31,5 @@
 <h2>Usuário logado: <?php echo $nome ?></h2>
 
 <a href="cadastro.php">Cadastrar Novo Usuário</a>
+
+<a href="sair.php">Sair</a>
