@@ -2,7 +2,7 @@
 function  listar($id){
     $lista = array();
     global $pdo;
-    $sql = $pdo->prepare("SELECT nome FROM usuarios WHERE id_pai = :id");
+    $sql = $pdo->prepare("SELECT * FROM usuarios WHERE id_pai = :id");
     $sql->bindValue(":id", $id);
     $sql->execute();
     
